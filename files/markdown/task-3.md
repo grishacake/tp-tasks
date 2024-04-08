@@ -5,10 +5,12 @@
 Целью домашнего задания является проектирование модели базы данных, наполнение ее тестовыми данными и и отображение этих данных на сайте. Таким образом будет создана read-only версия сайта.
 
 ### 1. Проектирование модели
-Используя Django Models спроектировать схему вашего приложения. Создать модели для основных сущностей: вопрос, ответ, тег, профиль пользователя, лайк. Важно использовать правильные типы данных и проставить необходимые связи ([ForeignKey](https://docs.djangoproject.com/en/4.1/ref/models/fields/#foreignkey)) в моделях. Для вопросов создать свой Model Manager, в котором определить типичные выборки (“лучшие” и “новые” вопросы).
+Используя Django Models спроектировать схему вашего приложения. Создать модели для основных сущностей: вопрос, ответ, тег, профиль пользователя, лайк. Важно использовать правильные типы данных и проставить необходимые связи ([ForeignKey](https://docs.djangoproject.com/en/5.0/ref/models/fields/#foreignkey)) в моделях. Для вопросов создать свой Model Manager, в котором определить типичные выборки (“лучшие” и “новые” вопросы).
 
-Поскольку мы будем использовать встроенную авторизацию Django (**django.contrib.auth**) - у нас будет готовая модель пользователя (**django.contrib.auth.models.User**), но необходимо создать дополнительную модель (Profile) в которую разместить дополнительные поля, например avatar. Модель Profile и User должны быть связаны один к
+Поскольку мы будем использовать встроенную авторизацию Django (**django.contrib.auth**) - у нас будет готовая модель пользователя (**django.contrib.auth.models.User**), но необходимо создать дополнительную модель (**Profile**) в которую разместить дополнительные поля, например avatar. Модель **Profile** и **User** должны быть связаны один к
 одному.
+
+Модели лайков вопросов (**QuestionLike**) и лайков ответов (**AnswerLike**) должны явно описаны в models.py. В этих моделях должны быть заложены ограничения по накрутке лайков - один пользователь одной и той же сущности не может поставить два лайка, в этом случае нужно ограничение на уровне базы [unique-together](https://docs.djangoproject.com/en/5.0/ref/models/options/#unique-together).
 
 ### 2. ModelManager и методы моделей
 В коде view не должно быть кода бизнес логики (анти-паттерн fat controller). Все методы по выборке и сортировке данных - в ModelManager. Вся логика по выводу данных, например построение полного пути к вопросу - в методы модели. Пагинация - в отдельную функцию. Вьюшки должны состоять из 4-6 строк.
@@ -91,9 +93,10 @@ python manage.py fill_db [ratio]
 - MySQL или PostgreSQL - 2.
 
 ### 7. Полезные ссылки
-- Туториал по [проектированию моделей в Django](https://docs.djangoproject.com/en/4.1/intro/tutorial02/);
-- Подробная [документация по моделям](https://docs.djangoproject.com/en/4.1/topics/db/models/);
-- Скрипты - [Management Commands](https://docs.djangoproject.com/en/4.1/howto/custom-management-commands/).
-- Подключение MySQL к Django - [Databases - MySQL](https://docs.djangoproject.com/en/4.1/ref/databases/#mysql-notes)
+- Туториал по [проектированию моделей в Django](https://docs.djangoproject.com/en/5.0/intro/tutorial02/);
+- Подробная [документация по моделям](https://docs.djangoproject.com/en/5.0/topics/db/models/);
+- Скрипты - [Management Commands](https://docs.djangoproject.com/en/5.0/howto/custom-management-commands/).
+- Подключение MySQL к Django - [Databases - MySQL](https://docs.djangoproject.com/en/5.0/ref/databases/#mysql-notes)
 - Как поднять MySQL на своей машине с помощью Docker - [Basic Steps for MySQL Server Deployment with Docker](https://dev.mysql.com/doc/mysql-installation-excerpt/8.0/en/docker-mysql-getting-started.html)
+- Как настроить MySQL и Djagno приложение - [How To Create a Django App and Connect it to a Database](https://www.digitalocean.com/community/tutorials/how-to-create-a-django-app-and-connect-it-to-a-database)
 

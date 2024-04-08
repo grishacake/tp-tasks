@@ -62,8 +62,8 @@
 Проверка метода запроса 1.
 
 ### 6. Полезные ссылки
-- Документация по [системе авторизации](https://docs.djangoproject.com/en/4.1/topics/auth/default/);
-- [Как войти залогинить пользователя](https://docs.djangoproject.com/en/4.1/topics/auth/default/#how-to-log-a-user-in);
-- [Как разлогинить пользователя](https://docs.djangoproject.com/en/4.1/topics/auth/default/#how-to-log-a-user-out);
-- [Как зарегистрировать пользователя](https://docs.djangoproject.com/en/4.1/topics/auth/default/#creating-users);
-- Туториал по [проектированию форм в Django](https://docs.djangoproject.com/en/4.1/intro/tutorial04/).
+- Документация по [системе авторизации](https://docs.djangoproject.com/en/5.0/topics/auth/default/);
+- [Как войти залогинить пользователя](https://docs.djangoproject.com/en/5.0/topics/auth/default/#how-to-log-a-user-in);
+- [Как разлогинить пользователя](https://docs.djangoproject.com/en/5.0/topics/auth/default/#how-to-log-a-user-out);
+- [Как зарегистрировать пользователя](https://docs.djangoproject.com/en/5.0/topics/auth/default/#creating-users);
+- Туториал по [проектированию форм в Django](https://docs.djangoproject.com/en/5.0/intro/tutorial04/).

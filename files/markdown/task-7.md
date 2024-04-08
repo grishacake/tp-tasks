@@ -17,7 +17,7 @@
 
 Так как запросы на предполагаются тяжелыми, необходимо кэшировать данные на диске или memcached. Вьюшки не должны запускать эти запросы, а только брать данные из кэша. Для кэширования можно использовать встроенные механизмы Django.
 
-Так как данные необходимы на каждой страницы, их придется загружать в каждой вьюшке, либо можно расширить шаблонизатор своими (inclusion) тегами. Наполнять кэш данными необходимо с помощью [Management команды](https://docs.djangoproject.com/en/4.1/howto/custom-management-commands/), запускаемой из Cron.
+Так как данные необходимы на каждой страницы, их придется загружать в каждой вьюшке, либо можно расширить шаблонизатор своими (inclusion) тегами. Наполнять кэш данными необходимо с помощью [Management команды](https://docs.djangoproject.com/en/5.0/howto/custom-management-commands/), запускаемой из Cron.
 
 ### 3. Полнотекстовый поиск
 Необходимо реализовать поиск по заголовкам и содержимому вопросов. Пользователь вводит текст в поисковой строке, которая находиться в шапке. По введенному тексту СУБД должна находить совпадения, используя полнотекстовые индексы. Результаты поиска отображаются пользователю в виде поисковых подсказок (выпадающий список под поисковой строкой).
@@ -54,8 +54,8 @@ Real-time сообщения - 8:
 ### 5. Полезные ссылки
 - Документация по Centrifugo: [серверная часть](https://centrifugal.dev/docs/server/configuration) и [клиентская часть](https://centrifugal.dev/docs/transports/websocket);
 - [Библиотека requests для Python](http://docs.python-requests.org/en/latest/);
-- [Inclusion tags в Django](https://docs.djangoproject.com/en/4.1/howto/custom-template-tags/#inclusion-tags);
-- [Настройка кэширования в Django](https://docs.djangoproject.com/en/4.1/topics/cache/#filesystem-caching);
-- [Использование кэшей в Django](https://docs.djangoproject.com/en/4.1/topics/cache/#the-low-level-cache-api);
+- [Inclusion tags в Django](https://docs.djangoproject.com/en/5.0/howto/custom-template-tags/#inclusion-tags);
+- [Настройка кэширования в Django](https://docs.djangoproject.com/en/5.0/topics/cache/#filesystem-caching);
+- [Использование кэшей в Django](https://docs.djangoproject.com/en/5.0/topics/cache/#the-low-level-cache-api);
 - [Полнотекстовый поиск в MySQL](http://www.mysql.ru/docs/man/Fulltext_Search.html);
 - [Cron](https://ru.wikipedia.org/wiki/Cron).

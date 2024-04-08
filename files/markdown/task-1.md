@@ -4,7 +4,7 @@
 Целью домашнего задания является подготовка статический верстки сайта (так называемой «рыбы»). Верстку можно размещать в обычных html файлах, в директории public. Также возможно сразу размещать верстку в шаблонах Django. Во втором случае понадобится создать примитивные view и роутинг в urls.py самостоятельно. Подробнее работа с роутингом и шаблонизацей обсуждается в ДЗ2.
 
 ### 1. Верстка общего вида (layout) страницы
-В файле **base.html** нужно создать основную верстку (любой) страницы. Для упрощения задачи нужно скачать и использовать CSS библиотеку [Bootstrap](https://getbootstrap.com/docs/5.2/getting-started/introduction/). Файлы (как свои CSS стили, так и файлы Bootstrap) нужно разместить в директории static.
+В файле **base.html** нужно создать основную верстку (любой) страницы. Для упрощения задачи нужно скачать и использовать CSS библиотеку [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/). Файлы (как свои CSS стили, так и файлы Bootstrap) нужно разместить в директории static.
 
 При верстке страницы важно обратить внимание на:
 
@@ -14,7 +14,7 @@
 - Блоки в правой колонке.
 
 ### 2. Верстка списка вопросов на главной странице
-В файле **index.html** нужно создать верстку для списка вопросов. Основную верстку (layout) можно просто скопировать из **base.html**. При использовании шаблонизатора - вам необходимо унаследовать ([extends](https://docs.djangoproject.com/en/4.1/ref/templates/builtins/#std:templatetag-extends)) шаблон от базового.
+В файле **index.html** нужно создать верстку для списка вопросов. Основную верстку (layout) можно просто скопировать из **base.html**. При использовании шаблонизатора - вам необходимо унаследовать ([extends](https://docs.djangoproject.com/en/5.0/ref/templates/builtins/#std:templatetag-extends)) шаблон от базового.
 
 Обратить внимание на:
 
@@ -117,9 +117,9 @@ HTML разместить в файлах **login.html** и **signup.html** со
 - аватарка и сообщения об ошибках - 1.
 
 ### 8. Полезные ссылки
-- Общая информация про [Bootstrap](https://getbootstrap.com/docs/5.2/getting-started/introduction/);
-- [Сетка Bootstrap](https://getbootstrap.com/docs/5.2/layout/grid/);
-- [Готовые блоки в Bootstrap](https://getbootstrap.com/docs/5.2/components/);
-- [Верстка форм в Bootstrap](https://getbootstrap.com/docs/5.2/forms/overview/);
-- [Основы шаблонизатора Django](https://docs.djangoproject.com/en/4.1/ref/templates/language/);
-- [Как отрисовать шаблон](https://docs.djangoproject.com/en/4.1/topics/http/shortcuts/#render).
+- Общая информация про [Bootstrap](https://getbootstrap.com/docs/5.3/getting-started/introduction/);
+- [Сетка Bootstrap](https://getbootstrap.com/docs/5.3/layout/grid/);
+- [Готовые блоки в Bootstrap](https://getbootstrap.com/docs/5.3/components/);
+- [Верстка форм в Bootstrap](https://getbootstrap.com/docs/5.3/forms/overview/);
+- [Основы шаблонизатора Django](https://docs.djangoproject.com/en/5.0/ref/templates/language/);
+- [Как отрисовать шаблон](https://docs.djangoproject.com/en/5.0/topics/http/shortcuts/#render).
