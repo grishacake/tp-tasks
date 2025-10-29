@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AskPupkin — Registration</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  
+<header class="site">
+  <div class="container header-row">
+    <div class="logo">
+      <a href="index.html">AskPupkin</a>
+    </div>
+    <form class="search" action="index.html">
+      <input type="search" name="q" placeholder="Search questions...">
+    </form>
+    <div class="userblock">
+      <img src="https://avatars.mds.yandex.net/i?id=4157aa4d99f75e7298e0326351a0dfe36f6e92bb-5905145-images-thumbs&n=13" width="56" height="56" alt="avatar">
+      <div class="name">
+        <a href="profile.html">Dr. Pepper</a>
+      </div>
+      <a href="login.html" style="margin-left: 6px;">log in</a>
+    </div>
+  </div>
+</header>
+
+  <main class="container layout">
+    <section class="panel main">
+      
+<h2>Registration</h2>
+<form class="form" action="#" method="post" enctype="multipart/form-data">
+  <label for="rlogin">Login</label>
+  <input id="rlogin" type="text" maxlength="50" value="dr_pepper">
+  <label for="remail">Email</label>
+  <input id="remail" type="email" maxlength="120" value="drpepper@mail.ru">
+  <label for="rnick">NickName</label>
+  <input id="rnick" type="text" maxlength="50" value="Dr. Pepper">
+  <label for="rpass">Password</label>
+  <input id="rpass" type="password" maxlength="64" value="">
+  <label for="rpass2">Repeat password</label>
+  <input id="rpass2" type="password" maxlength="64" value="">
+  <label for="avatar">Upload avatar</label>
+  <input id="avatar" type="file" accept="image/*">
+  <div class="actions">
+    <button class="button" type="submit">Register!</button>
+  </div>
+</form>
+
+    </section>
+    
+<aside class="sidebar">
+  <div class="panel block">
+    <h3>Popular Tags</h3>
+    <div class="tag-cloud">
+      <a class="tag" href="tag.html">python</a>
+      <a class="tag" href="tag.html">django</a>
+      <a class="tag" href="tag.html">MySQL</a>
+      <a class="tag" href="tag.html">bender</a>
+      <a class="tag" href="tag.html">black-jack</a>
+      <a class="tag" href="tag.html">Firefox</a>
+      <a class="tag" href="tag.html">TechnoPark</a>
+      <a class="tag" href="tag.html">perl</a>
+      <a class="tag" href="tag.html">Mail.Ru</a>
+      <a class="tag" href="tag.html">Voloshin</a>
+    </div>
+  </div>
+  <div class="panel block">
+    <h3>Best Members</h3>
+    <div class="member-list">
+      <a class="badge" href="#">Mr. Freeman</a>
+      <a class="badge" href="#">Dr. House</a>
+      <a class="badge" href="#">Bender</a>
+      <a class="badge" href="#">Queen Victoria</a>
+      <a class="badge" href="#">V. Pupkin</a>
+    </div>
+  </div>
+</aside>
+
+  </main>
+
+</body>
+</html>
