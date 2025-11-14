@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AskPupkin — Tag {{ tag }}</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <script src="{% static 'js/ui.js' %}"></script>
+</head>
+<body>
+  
+<header class="site">
+  <div class="container header-row">
+    <div class="logo">
+      <a href="{% url 'index' %}">AskPupkin</a>
+    </div>
+    <form class="search" action="{% url 'index' %}">
+      <input type="search" name="q" placeholder="Search questions...">
+    </form>
+    <a class="ask-btn" href="{% url 'ask' %}">ASK!</a>
+    <div class="userblock">
+      <img src="https://avatars.mds.yandex.net/i?id=4157aa4d99f75e7298e0326351a0dfe36f6e92bb-5905145-images-thumbs&n=13"
+           width="56" height="56" alt="avatar">
+      <div class="name">
+        <a href="#">Dr. Pepper</a>
+      </div>
+      <a href="{% url 'login' %}" style="margin-left: 6px;">log in</a>
+    </div>
+  </div>
+</header>
+
+<main class="container layout">
+  <section class="panel main">
+      
+    <div class="tag-title">Tag: <strong>{{ tag }}</strong></div>
+
+    {% for q in page.object_list %}
+    <article class="card question">
+      <div class="vote">
+        <button aria-label="Like">+</button>
+        <div class="score">3</div>
+        <button aria-label="Dislike">–</button>
+      </div>
+
+      <div class="q-body">
+        <div class="q-head">
+          <img class="avatar"
+               src="https://avatars.mds.yandex.net/i?id=e094d2624fc518a67aaf87a047a5ceca9e05977a-8498118-images-thumbs&n=13"
+               width="56" height="56" alt="avatar">
+          <div class="q-text">
+            <h3 class="q-title">
+              <a href="{% url 'question' q.id %}">{{ q.title }}</a>
+            </h3>
+            <p class="q-excerpt">{{ q.text }}</p>
+          </div>
+        </div>
+
+        <div class="q-meta">
+          <a href="{% url 'question' q.id %}#answers" class="answer-count">answers</a>
+          <div class="q-tags">
+            <a class="tag" href="{% url 'tag' 'python' %}">python</a>
+            <a class="tag" href="{% url 'tag' 'django' %}">django</a>
+          </div>
+        </div>
+      </div>
+    </article>
+    {% endfor %}
+
+    <nav class="paginator" aria-label="Страницы">
+      {% if page.has_previous %}
+        <a class="page" href="?page={{ page.previous_page_number }}">←</a>
+      {% endif %}
+
+      <span class="page active">{{ page.number }}</span>
+
+      {% if page.has_next %}
+        <a class="page" href="?page={{ page.next_page_number }}">→</a>
+      {% endif %}
+    </nav>
+
+  </section>
+    
+  <aside class="sidebar">
+    <div class="panel block">
+      <h3>Popular Tags</h3>
+      <div class="tag-cloud">
+        <a class="tag" href="{% url 'tag' 'python' %}">python</a>
+        <a class="tag" href="{% url 'tag' 'django' %}">django</a>
+        <a class="tag" href="{% url 'tag' 'MySQL' %}">MySQL</a>
+        <a class="tag" href="{% url 'tag' 'bender' %}">bender</a>
+        <a class="tag" href="{% url 'tag' 'black-jack' %}">black-jack</a>
+        <a class="tag" href="{% url 'tag' 'Firefox' %}">Firefox</a>
+        <a class="tag" href="{% url 'tag' 'TechnoPark' %}">TechnoPark</a>
+        <a class="tag" href="{% url 'tag' 'perl' %}">perl</a>
+        <a class="tag" href="{% url 'tag' 'Mail.Ru' %}">Mail.Ru</a>
+        <a class="tag" href="{% url 'tag' 'Voloshin' %}">Voloshin</a>
+      </div>
+    </div>
+    <div class="panel block">

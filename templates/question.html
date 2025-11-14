@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ question.title }}</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <script src="{% static 'js/ui.js' %}"></script>
+</head>
+<body>
+  
+<header class="site">
+  <div class="container header-row">
+    <div class="logo">
+      <a href="{% url 'index' %}">AskPupkin</a>
+    </div>
+    <form class="search" action="{% url 'index' %}">
+      <input type="search" name="q" placeholder="Search questions...">
+    </form>
+    <a class="ask-btn" href="{% url 'ask' %}">ASK!</a>
+    <div class="userblock">
+      <img src="https://avatars.mds.yandex.net/i?id=4157aa4d99f75e7298e0326351a0dfe36f6e92bb-5905145-images-thumbs&n=13"
+           width="56" height="56" alt="avatar">
+      <div class="name">
+        <a href="#">Dr. Pepper</a>
+      </div>
+      <a href="{% url 'login' %}" style="margin-left: 6px;">log in</a>
+    </div>
+  </div>
+</header>
+
+<main class="container layout">
+  <section class="panel main">
+      
+    <article class="card" style="padding: 16px;">
+      <header style="display: flex; gap: 12px; align-items: flex-start;">
+        <img src="https://avatars.mds.yandex.net/i?id=e094d2624fc518a67aaf87a047a5ceca9e05977a-8498118-images-thumbs&n=13"
+             width="86" height="86" alt="avatar">
+        <div style="flex: 1;">
+          <h1 style="margin: 0 0 8px 0;">{{ question.title }}</h1>
+          <p>{{ question.text }}</p>
+          <div class="q-tags">
+            <a class="tag" href="{% url 'tag' 'black-jack' %}">black-jack</a>
+            <a class="tag" href="{% url 'tag' 'bender' %}">bender</a>
+          </div>
+        </div>
+      </header>
+    </article>
+
+    <h3 id="answers" style="margin: 18px 0 8px;">Answers</h3>
+    <section class="answers">
+      {% for a in page.object_list %}
+      <div class="answer">
+        <div class="vote">
+          <button>+</button>
+          <div class="score">{{ a.score|default:0 }}</div>
+          <button>–</button>
+        </div>
+        <div class="q-head">
+          <img class="avatar"
+               src="https://avatars.mds.yandex.net/i?id=e094d2624fc518a67aaf87a047a5ceca9e05977a-8498118-images-thumbs&n=13"
+               width="56" height="56" alt="avatar">
+          <p>{{ a.text }}</p>
+        </div>
+        <label class="correct">
+          <input type="checkbox"> Correct!
+        </label>
+      </div>
+      {% endfor %}
+    </section>
+
+    <nav class="paginator">
+      {% if page.has_previous %}
+        <a class="page" href="?page={{ page.previous_page_number }}">←</a>
+      {% endif %}
+
+      <span class="page active">{{ page.number }}</span>
+
+      {% if page.has_next %}
+        <a class="page" href="?page={{ page.next_page_number }}">→</a>
+      {% endif %}
+    </nav>
+
+    <section class="card" style="padding: 16px;">
+      <h3>Enter your answer here..</h3>
+      <form class="form" action="#" method="post">
+        <textarea maxlength="5000" placeholder="Type your answer…"></textarea>
+        <div class="actions">
+          <button class="button" type="submit">Answer</button>
+        </div>
+      </form>
+    </section>
+
+  </section>
+    
+  <aside class="sidebar">
+    <div class="panel block">
+      <h3>Popular Tags</h3>
+      <div class="tag-cloud">
+        <a class="tag" href="{% url 'tag' 'python' %}">python</a>
+        <a class="tag" href="{% url 'tag' 'django' %}">django</a>
+        <a class="tag" href="{% url 'tag' 'MySQL' %}">MySQL</a>
+        <a class="tag" href="{% url 'tag' 'bender' %}">bender</a>
+        <a class="tag" href="{% url 'tag' 'black-jack' %}">black-jack</a>
+        <a class="tag" href="{% url 'tag' 'Firefox' %}">Firefox</a>
+        <a class="tag" href="{% url 'tag' 'TechnoPark' %}">TechnoPark</a>
+        <a class="tag" href="{% url 'tag' 'perl' %}">perl</a>
+        <a class="tag" href="{% url 'tag' 'Mail.Ru' %}">Mail.Ru</a>
+        <a class="tag" href="{% url 'tag' 'Voloshin' %}">Voloshin</a>
+      </div>
+    </div>
+    <div class="panel block">
+      <h3>Best Members</h3>
+      <div class="member-list">
+        <a class="badge" href="#">Mr. Freeman</a>
+        <a class="badge" href="#">Dr. House</a>
+        <a class="badge" href="#">Bender</a>
+        <a class="badge" href="#">Queen Victoria</a>
+        <a class="badge" href="#">V. Pupkin</a>
+      </div>
+    </div>
+  </aside>
+
+</main>
+
+</body>
+</html>
